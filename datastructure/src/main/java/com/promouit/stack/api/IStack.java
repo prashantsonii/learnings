@@ -1,9 +1,10 @@
 package com.promouit.stack.api;
 
 import com.promouit.stack.exception.StackEmptyException;
+import com.promouit.stack.exception.StackFullException;
 
 public interface IStack<E> {
-	public void push(E data);
+	public void push(E data) throws StackFullException;
 
 	public E pop() throws StackEmptyException;
 	

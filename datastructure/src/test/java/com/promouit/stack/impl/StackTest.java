@@ -48,4 +48,13 @@ public class StackTest {
 		stack.pop();
 		assertTrue(stack.isEmpty());
 	}
+	
+	@Test
+	public void shouldPeekData() throws StackEmptyException {
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(10);
+		stack.push(20);
+		assertEquals(Integer.valueOf(20), stack.peek());
+		assertEquals(Integer.valueOf(20), stack.peek());
+	}
 }
