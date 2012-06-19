@@ -4,7 +4,7 @@ import com.promouit.stack.api.IStack;
 import com.promouit.stack.exception.StackEmptyException;
 import com.promouit.stack.exception.StackFullException;
 
-public class StackOfArray<E> implements IStack<E>{
+public class StackOfArray<E extends Comparable<E>> implements IStack<E>{
 
 	private static final int MAX_STACK_SIZE = 5;
 	private Object[] stackData = new Object[MAX_STACK_SIZE];

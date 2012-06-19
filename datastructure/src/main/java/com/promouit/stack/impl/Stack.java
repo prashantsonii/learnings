@@ -4,7 +4,7 @@ import com.promouit.stack.api.IStack;
 import com.promouit.stack.domain.SNode;
 import com.promouit.stack.exception.StackEmptyException;
 
-public class Stack<E> implements IStack<E> {
+public class Stack<E extends Comparable<E>> implements IStack<E> {
 
 	private int size;
 	private SNode<E> top;
