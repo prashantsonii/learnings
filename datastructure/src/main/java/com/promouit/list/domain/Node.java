@@ -20,4 +20,25 @@ public class Node<E> {
 	public void setNext(Node<E> next) {
 		this.next = next;
 	}
+	
+	public void setData(E data) {
+		this.data = data;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		if(!(obj instanceof Node))
+			return false;
+		@SuppressWarnings("unchecked" )
+		Node<E> anotherNode = (Node<E>)obj;
+		if(this.data!=null && anotherNode.data!=null){
+			return this.data.equals(anotherNode.data);
+		}else if(this.data==null && anotherNode.data==null){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

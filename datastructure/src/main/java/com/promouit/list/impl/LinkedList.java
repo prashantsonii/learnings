@@ -106,4 +106,21 @@ public class LinkedList<E> implements IList<E> {
 		}
 		return temp.getData();
 	}
+	
+	public Node<E> getStart() {
+		return start;
+	}
+	
+	public Node<E> getEnd() {
+		return end;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer str = new StringBuffer();
+		for(Node<E> tmp = start; tmp!=null; tmp = tmp.getNext()){
+			str.append(tmp.getData().toString()).append(",");
+		}
+		return str.toString();
+	}
 }
