@@ -1,4 +1,4 @@
-package com.promouit.dlinklist.domain;
+package com.promouit.dlist.domain;
 
 public class Node<E> {
 
@@ -34,5 +34,10 @@ public class Node<E> {
 	
 	public void setPrevious(Node<E> previous) {
 		this.previous = previous;
+	}
+	
+	@Override
+	public String toString() {
+		return data.toString();
 	}
 }

@@ -1,4 +1,4 @@
-package com.promouit.dlinklist.api;
+package com.promouit.dlist.api;
 
 public interface DList<E> {
 	

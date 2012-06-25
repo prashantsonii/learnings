@@ -4,7 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.promouit.dlinklist.api.DList;
+import com.promouit.dlist.api.DList;
+import com.promouit.dlist.impl.DLinkedList;
 
 public class DLinkedListTest {
 

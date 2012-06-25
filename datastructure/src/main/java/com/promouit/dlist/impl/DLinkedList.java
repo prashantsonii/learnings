@@ -1,7 +1,7 @@
-package com.promouit.dlinklist.impl;
+package com.promouit.dlist.impl;
 
-import com.promouit.dlinklist.api.DList;
-import com.promouit.dlinklist.domain.Node;
+import com.promouit.dlist.api.DList;
+import com.promouit.dlist.domain.Node;
 
 public class DLinkedList<E> implements DList<E>{
 
@@ -107,5 +107,29 @@ public class DLinkedList<E> implements DList<E>{
 		}
 		return false;
 	}
+	
+	public Node<E> getStart() {
+		return start;
+	}
+	
+	public Node<E> getEnd() {
+		return end;
+	}
+	
+	public void setEnd(Node<E> end) {
+		this.end = end;
+	}
+	
+	public void setStart(Node<E> start) {
+		this.start = start;
+	}
 
+	@Override
+	public String toString() {
+		StringBuffer stringRepresentation = new StringBuffer();
+		for(Node<E> tmp = start; tmp!=null; tmp = tmp.getNext()){
+			stringRepresentation.append(tmp.toString()).append(",");
+		}
+		return stringRepresentation.toString();
+	}
 }
