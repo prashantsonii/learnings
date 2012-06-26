@@ -23,6 +23,21 @@ public class CircularDLinkedList<E> implements DList<E> {
 		size++;
 	}
 
+	public Node<E> insertAndReturnNode(E data) {
+		Node<E> node = new Node<E>(data);
+		if(startNode==null){
+			startNode = endNode = node;
+		}else{
+			endNode.setNext(node);
+			node.setPrevious(endNode);
+			endNode = node;
+		}
+		node.setNext(startNode);
+		startNode.setPrevious(node);
+		size++;
+		return node;
+	}
+	
 	public void deleteAtPosition(int position) {
 		if(position > size - 1)
 			throw new IndexOutOfBoundsException();

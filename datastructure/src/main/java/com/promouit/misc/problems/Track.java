@@ -1,24 +1,35 @@
 package com.promouit.misc.problems;
 
-import com.promouit.dlist.impl.DLinkedList;
+import com.promouit.dlist.domain.Node;
+import com.promouit.dlist.impl.CircularDLinkedList;
 
 public class Track {
 	
 	public int findStartingStation(int[] distances, int[] fuel) {
-		DLinkedList<StationDetails> dLinkedList = new DLinkedList<StationDetails>();
-		StationDetails startingStation = null;
+		CircularDLinkedList<StationDetails> dLinkedList = new CircularDLinkedList<StationDetails>();
+		Node<StationDetails> startingStation = null;
 		for(int i = 0; i<distances.length; i++){
-			StationDetails currentStation = new StationDetails(i, fuel[i] - distances[i]);
+			Node<StationDetails> currentStation = dLinkedList.insertAndReturnNode(new StationDetails(i, fuel[i] - distances[i]));
 			if(startingStation!=null){
-				if(currentStation.compareTo(startingStation)>0)
+				if(currentStation.getData().compareTo(startingStation.getData())>0)
 					startingStation = currentStation;
+			}else{
+				startingStation = currentStation;
 			}
-			dLinkedList.insert(currentStation);
 		}
-		//StationDetails endStation = startingStation.get
-		
-		
-		return startingStation.getStationIndex();
+
+		Node<StationDetails> endStation = startingStation.getNext();
+		int sum = startingStation.getData().getFuel();
+		while(startingStation != endStation){
+			if(sum < 0){
+				startingStation= startingStation.getPrevious();
+				sum+=startingStation.getData().getFuel();
+			}else{
+				sum+=endStation.getData().getFuel();
+				endStation = endStation.getNext();
+			}
+		}
+		return startingStation.getData().getStationIndex();
 
 	}
 
